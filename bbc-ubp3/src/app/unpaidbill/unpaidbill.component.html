@@ -1,0 +1,32 @@
+
+<!-- Bill Table -->
+<table class="table table-striped">
+  <thead class="thead-dark">
+      <tr>
+          <th>BillId</th>
+          <th>Bill Amount</th>
+          <th>Unit</th>
+          <th>Paid Or Not</th>
+          <th>Duration of Bill</th>
+          <th>Due Date</th>
+          <th>Customer Id</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let row of bills" (click)="onSelect(row)" [class.selected]="selectedRows.has(row)">
+          <td>{{ row.billId }}</td>
+          <td>{{ row.billAmount }}</td>
+          <td>{{ row.unitConsumption }}</td>
+          <td>{{ row.paid }}</td>
+          <td>{{ row.durationOfBill }}</td>
+          <td>{{ row.billDueDate }}</td>
+          <td>{{ cusId}}</td>
+      </tr>
+  </tbody>
+</table>
+  <!-- Payment Buttons -->
+<div class="button-container">
+  <button style="margin-right: 100px;" class="btn btn-outline-primary" (click)="onTotal()">Total</button>
+  <button style="margin-right: 100px;" class="btn btn-outline-danger" (click)="onClear()">Clear</button>
+  <button type="button" class="btn btn-outline-success" (click)="onPay()">Pay {{ amount| currency:'INR' }}</button>
+</div>

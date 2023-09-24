@@ -1,0 +1,28 @@
+
+
+<!-- Bill Table -->
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>BillId</th>
+            <th>Bill Amount</th>
+            <th>Unit</th>
+            <th>Paid Or Not</th>
+            <th>Duration of Bill</th>
+            <th>Due Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of bills" >
+
+
+            <td>{{ row.billId }}</td>
+            <td>{{ row.billAmount }}</td>
+            <td>{{ row.unitConsumption }}</td>
+            <td>{{ row.paid }}</td>
+            <td>{{ row.durationOfBill }}</td>
+            <td>{{ row.billDueDate }}</td>
+        </tr>
+    </tbody>
+  </table>
+   

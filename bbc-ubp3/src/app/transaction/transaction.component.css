@@ -1,0 +1,49 @@
+/* Apply styles to the table */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Style the table header */
+  .table thead th {
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+    padding: 10px;
+  }
+  
+  /* Style alternating table rows */
+  .table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  /* Style table data cells */
+  .table tbody td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  /* Style the "Paid Or Not" cell based on content */
+  .table tbody td:nth-child(5) {
+    color: green; /* Change to your preferred color for paid bills */
+  }
+  
+  /* Style the "Due Date" cell based on content */
+  .table tbody td:nth-child(6) {
+    color: red; /* Change to your preferred color for overdue bills */
+  }
+  
+  /* Add hover effect on rows */
+  .table tbody tr:hover {
+    background-color: #ddd;
+  }
+  /* Style the button container */
+
+  
+  /* Style selected rows */
+.table tbody tr.selected {
+    background-color: #b3d7ff; /* Change to your desired highlight color */
+  }
+  

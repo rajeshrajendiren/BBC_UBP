@@ -1,0 +1,115 @@
+<app-header></app-header>
+<div class="container">
+ 
+<ul role="tablist" class="nav nav-pills rounded nav-fill mb-3">
+    <li class="nav-item">
+      <a (click)="selectPaymentMethod('credit-card')" class="nav-link" [class.active]="isCreditCardSelected">
+        Credit Card
+      </a>
+    </li>
+    <li class="nav-item">
+      <a (click)="selectPaymentMethod('upi')" class="nav-link" [class.active]="isUpiSelected">
+        UPI
+      </a>
+    </li>
+    <li class="nav-item">
+      <a (click)="selectPaymentMethod('wallet')" class="nav-link" [class.active]="isWalletSelected">
+        Wallet
+      </a>
+    </li>
+  </ul><br><br>
+  <div class="container">
+ 
+  <div class="card-block d-flex justify-content-center" *ngIf="isCreditCardSelected">
+    <form  role="form">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <label>CARD NUMBER</label>
+                    <div class="input-group">
+                        <input #cardnumber type="tel" class="form-control" placeholder="Valid Card Number" />
+                        <span class="input-group-addon"><span class="fa fa-credit-card"></span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-7 col-md-7">
+                <div class="form-group">
+                    <label><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span>
+                        DATE</label>
+                    <input #date type="tel" class="form-control" placeholder="MM / YY" />
+                </div>
+            </div>
+            <div class="col-xs-5 col-md-5 float-xs-right">
+                <div class="form-group">
+                    <label>CV CODE</label>
+                    <input #cvc type="tel" class="form-control" placeholder="CVC" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <label>CARD OWNER</label>
+                    <input #ownername type="text" class="form-control" placeholder="Card Owner Names" />
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-xs-12">
+                    <button type="submit"(click)="postCreditCardData(cardnumber.value,date.value,cvc.value,ownername.value)"
+                     class="btn btn-warning btn-lg btn-block">Process payment</button>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+
+</div>
+</div>
+<div class="container">
+ 
+<div class="card-block d-flex justify-content-center" *ngIf="isUpiSelected">
+    <form #upiPaymentForm="ngForm" role="form">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label>UPI ID</label>
+            <input type="text" #upiid class="form-control" name="upiId" ngModel placeholder="Enter UPI ID" required />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button class="btn btn-warning btn-lg btn-block" (click)="postUpiData(upiid.value)" type="submit">Proceed Payment</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  </div>
+<!-- Wallet form content -->
+<div class="container">
+ 
+<div class="card-block d-flex justify-content-center" *ngIf="isWalletSelected">
+    <form role="form">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <label>Wallet ID</label>
+                    <input #walletid type="text" class="form-control" name="wallet" ngModel placeholder="Enter Wallet ID" required />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <button class="btn btn-warning btn-lg btn-block" (click)="postWalletData(walletid.value)" type="submit">Proceed Payment</button>
+            </div>
+        </div>
+    </form>  
+</div>
+</div>
+</div>

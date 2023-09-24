@@ -1,0 +1,23 @@
+<table class="table table-bordered table-hover">
+    <thead>
+        <th>Transaction ID</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Payment Type</th>
+        <th>Unit</th>
+        <th>BillID</th>
+        <th>Duration Of Bill</th>
+        
+    </thead>
+    <tbody>
+        <tr *ngFor="let transaction of transactions">
+            <td>{{ transaction.transactionId }}</td>
+            <td>{{ transaction.transactionDate | date:'mediumDate' }}</td>
+            <td>{{ transaction.amount }}</td>
+            <td>{{ transaction.paymentType }}</td>
+            <td>{{ transaction.bill.unitConsumption }}</td>
+            <td>{{ transaction.bill.billId }}</td>
+            <td>{{ transaction.bill.durationOfBill }}</td>
+        </tr>
+    </tbody>
+</table>
